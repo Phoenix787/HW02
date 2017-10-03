@@ -1,5 +1,7 @@
 package services.datasets;
 
+import entities.Roles;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,7 +19,9 @@ public class UserDataSet {
     @Column(name = "password")
     private String password;
 
-    private Integer role; // здесь будем хранить отметку о роли юзера: пользователь или администратор
+    @Enumerated(EnumType.ORDINAL)
+    @Column(columnDefinition = "enum('admin', 'user')")
+    private Roles role; // здесь будем хранить отметку о роли юзера: пользователь или администратор
 
     public UserDataSet() {
     }
@@ -25,18 +29,21 @@ public class UserDataSet {
     public UserDataSet(String name, String password) {
         this.name = name;
         this.password = password;
+        this.role = Roles.USER;
     }
 
-    public UserDataSet(long id, String name, String password) {
+    public UserDataSet(long id, String name, String password, Roles role) {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.role = role;
     }
 
     public UserDataSet(long id, String name) {
         this.id = id;
         this.name = name;
         this.password = name;
+        this.role = Roles.USER;
     }
 
 
@@ -64,11 +71,11 @@ public class UserDataSet {
         this.password = password;
     }
 
-    public Integer getRole() {
+    public Roles getRole() {
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(Roles role) {
         this.role = role;
     }
 
@@ -76,8 +83,8 @@ public class UserDataSet {
     public String toString() {
         return "UserDataSet{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", role=" + role +
                 '}';
     }
 }

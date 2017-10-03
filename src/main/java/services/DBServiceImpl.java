@@ -1,5 +1,7 @@
 package services;
 
+import entities.Contract;
+import entities.Document;
 import services.datasets.Sessions;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -138,6 +140,8 @@ public class DBServiceImpl implements DBService {
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(UserDataSet.class);
         configuration.addAnnotatedClass(Sessions.class);
+        configuration.addAnnotatedClass(Contract.class);
+        configuration.addAnnotatedClass(Document.class);
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
         configuration.setProperty("hibernate.connection.driver_class", "org.h2.Driver");
         configuration.setProperty("hibernate.connection.url", host);

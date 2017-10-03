@@ -15,6 +15,7 @@ public class Users {
     private String name;
     @Column(name = "password")
     private String password;
+
     @Enumerated(EnumType.ORDINAL)
     @Column(columnDefinition = "enum('admin', 'user')")
     private Roles role;
