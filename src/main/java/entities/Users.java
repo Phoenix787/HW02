@@ -7,10 +7,17 @@ import java.util.Objects;
 @Table(name = "users")
 public class Users {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "password")
     private String password;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(columnDefinition = "enum('admin', 'user')")
+    private Roles role;
 
     protected Users() {
     }
@@ -20,9 +27,6 @@ public class Users {
         this.password = password;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -31,17 +35,15 @@ public class Users {
         this.id = id;
     }
 
-    @Column(name = "name")
     public String getName() {
         return name;
     }
-
 
     public void setName(String name) {
         this.name = name;
     }
 
-    @Column(name = "password")
+
     public String getPassword() {
         return password;
     }

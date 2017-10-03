@@ -2,7 +2,6 @@ package entities;
 
 import entities.enums.StatusDocument;
 import entities.enums.StatusContract;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
