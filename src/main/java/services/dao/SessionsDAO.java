@@ -25,7 +25,6 @@ public class SessionsDAO {
     public long getUserId(String keySession) {
         long idUser = 0;
         Criteria criteria = session.createCriteria(Sessions.class);
-        //todo здесь нажно как-то проверить что Sessions возращается null
         Sessions sessions = (Sessions)criteria.add(Restrictions.eq("keySession", keySession)).uniqueResult();
         if (sessions != null) {
             idUser = sessions.getIdUser();
