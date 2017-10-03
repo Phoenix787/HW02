@@ -34,7 +34,7 @@ public class Main {
         ResourceHandler contentHandler = new ResourceHandler();
         contentHandler.setDirectoriesListed(false);
         contentHandler.setResourceBase("templates");
-        contentHandler.setWelcomeFiles(new String[]{"index.html"});
+        contentHandler.setWelcomeFiles(new String[]{"index.html", "/admin/index.html"});
         //contentHandler.setResourceBase(".");
 
         context.addServlet(new ServletHolder(new HttpServlet() {

@@ -2,7 +2,7 @@ package entities;
 
 import java.util.HashSet;
 import java.util.Set;
-
+//todo аннотировать классы
 public class Contractor {
     private String name;
     private Address mainAddress;

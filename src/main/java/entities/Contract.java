@@ -23,7 +23,7 @@ public class Contract {
     @Column(name = "date")
     private Date date;
 
-    @OneToMany(mappedBy = "contracts", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Document> documents = new HashSet<>(); //список документов
 
     @Enumerated(EnumType.ORDINAL)
